@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Minus, Plus, Check } from "lucide-react";
-import heroImage from "@/assets/hoodie-hero.jpg";
+import ProductGallery from "./ProductGallery";
 
 const sizes = ["S", "M", "L", "XL", "XXL"];
 
@@ -22,22 +22,7 @@ const ProductShowcase = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Product Image */}
-          <div className="relative group">
-            <div className="aspect-[4/5] bg-charcoal overflow-hidden">
-              <img
-                src={heroImage}
-                alt="Andre Aslanidis Reflective Embroidered Hoodie in Nardo Grey"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            {/* Reflective badge */}
-            <div className="absolute top-6 left-6 px-4 py-2 bg-background/90 backdrop-blur-sm border border-border">
-              <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                Reflective Details
-              </span>
-            </div>
-          </div>
+          <ProductGallery />
 
           {/* Product Info */}
           <div className="lg:sticky lg:top-32">
