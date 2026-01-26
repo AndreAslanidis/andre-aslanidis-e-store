@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Cormorant Garamond', 'Georgia', 'serif'],
-        body: ['Inter', '-apple-system', 'sans-serif'],
+        display: ['Roboto Mono', 'monospace'],
+        body: ['Space Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",

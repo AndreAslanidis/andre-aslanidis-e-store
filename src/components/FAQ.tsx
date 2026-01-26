@@ -9,57 +9,52 @@ const faqs = [
   {
     question: "How can I place an order?",
     answer:
-      "Browse the site, add items to your cart, and proceed to checkout. Our streamlined process ensures a seamless luxury shopping experience.",
+      "Browse the site, add items to your cart, and proceed to checkout.",
   },
   {
     question: "What payment methods do you accept?",
     answer:
-      "We accept Visa, Mastercard, American Express, and other secure online payment options depending on your location. All transactions are encrypted and secure.",
+      "Visa, Mastercard, American Express, and other secure online payment options depending on location.",
   },
   {
     question: "How long will delivery take?",
     answer:
-      "Australia: 3–7 business days. International: 7–21 business days. Express shipping is available for time-sensitive orders.",
+      "Australia: 3–7 business days. International: 7–21 business days. Express shipping available.",
   },
   {
     question: "Can I track my order?",
     answer:
-      "Yes, tracking details are emailed once your order ships. You'll receive real-time updates on your package's journey.",
+      "Yes, tracking details are emailed once your order ships.",
   },
   {
     question: "What is your return policy?",
     answer:
-      "We offer returns within 14 days of delivery for unworn items in original packaging. Contact our support team to initiate a return.",
+      "We offer returns within 14 days of delivery for unworn items in original packaging.",
   },
 ];
 
 const FAQ = () => {
   return (
-    <section className="relative bg-background">
-      <div className="section-container">
+    <section id="faq" className="bg-background border-t border-border">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-10 py-12 md:py-16">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground mb-4">
-            Support
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-foreground">
-            Frequently Asked Questions
-          </h2>
-        </div>
+        <h2 className="font-display text-lg md:text-xl text-foreground mb-8">
+          Frequently Asked Questions
+        </h2>
 
         {/* FAQ Accordion */}
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+        <div className="max-w-2xl">
+          <Accordion type="single" collapsible className="space-y-0">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="border border-border px-6 data-[state=open]:border-foreground/30 transition-colors"
+                className="border-b border-border py-0"
               >
-                <AccordionTrigger className="py-6 text-left font-display text-lg font-light hover:no-underline">
+                <AccordionTrigger className="py-4 text-left font-body text-xs hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="pb-6 text-muted-foreground text-sm leading-relaxed">
+                <AccordionContent className="pb-4 font-body text-xs text-muted-foreground leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

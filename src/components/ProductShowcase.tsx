@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Minus, Plus, Check } from "lucide-react";
 import ProductGallery from "./ProductGallery";
 
 const sizes = ["S", "M", "L", "XL", "XXL"];
@@ -9,65 +8,40 @@ const ProductShowcase = () => {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <section id="product" className="relative bg-background">
-      <div className="section-container">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground mb-4">
-            Featured Drop
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-foreground">
-            The Signature Piece
-          </h2>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+    <section id="product" className="bg-background border-t border-border">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-10 py-12 md:py-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           <ProductGallery />
 
           {/* Product Info */}
-          <div className="lg:sticky lg:top-32">
+          <div className="lg:sticky lg:top-24">
             {/* Product Title */}
-            <div className="mb-8">
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">
+            <div className="mb-6">
+              <p className="font-body text-xs text-muted-foreground mb-2">
                 Andre Aslanidis™
               </p>
-              <h3 className="font-display text-2xl md:text-3xl font-light text-foreground mb-4">
-                Reflective Embroidered Hoodie
-              </h3>
-              <p className="text-xl text-foreground">
-                $285.00 <span className="text-xs text-muted-foreground ml-2">AUD</span>
+              <h1 className="font-display text-xl md:text-2xl text-foreground mb-3">
+                '٢٠٠٣' Nardo Grey Hoodie
+              </h1>
+              <p className="font-body text-sm text-foreground">
+                $285.00 AUD
               </p>
             </div>
 
-            {/* Product Description */}
-            <div className="mb-8">
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                A commanding presence in Nardo Grey. Crafted from ultra-thick 470 GSM 
-                French Terry cotton, this statement hoodie features reflective 3D "٢٠٠٣" 
-                embroidery on the chest and an oversized reflective AA logo across the back. 
-                Designed for day presence and night impact.
-              </p>
-            </div>
-
-            {/* Color */}
-            <div className="mb-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
-                Colour — Nardo Grey
-              </p>
-              <div className="w-8 h-8 rounded-full bg-nardo-grey border-2 border-foreground" />
-            </div>
+            {/* Divider */}
+            <div className="h-px bg-border mb-6" />
 
             {/* Size Selection */}
-            <div className="mb-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
-                Select Size
+            <div className="mb-6">
+              <p className="font-body text-xs text-foreground mb-3">
+                Size
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {sizes.map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`w-14 h-14 border text-sm transition-all duration-300 ${
+                    className={`min-w-[48px] h-10 px-4 font-body text-xs border transition-all duration-200 ${
                       selectedSize === size
                         ? "border-foreground bg-foreground text-background"
                         : "border-border hover:border-foreground text-foreground"
@@ -80,55 +54,50 @@ const ProductShowcase = () => {
             </div>
 
             {/* Quantity */}
-            <div className="mb-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+            <div className="mb-6">
+              <p className="font-body text-xs text-foreground mb-3">
                 Quantity
               </p>
-              <div className="flex items-center gap-4">
+              <div className="inline-flex items-center border border-border">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-12 h-12 border border-border flex items-center justify-center hover:border-foreground transition-colors"
+                  className="w-10 h-10 flex items-center justify-center font-body text-foreground hover:bg-secondary transition-colors"
                 >
-                  <Minus className="w-4 h-4" strokeWidth={1.5} />
+                  −
                 </button>
-                <span className="w-12 text-center text-lg">{quantity}</span>
+                <span className="w-12 text-center font-body text-sm text-foreground">{quantity}</span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="w-12 h-12 border border-border flex items-center justify-center hover:border-foreground transition-colors"
+                  className="w-10 h-10 flex items-center justify-center font-body text-foreground hover:bg-secondary transition-colors"
                 >
-                  <Plus className="w-4 h-4" strokeWidth={1.5} />
+                  +
                 </button>
               </div>
             </div>
 
-            {/* Add to Cart / Buy Now */}
-            <div className="flex flex-col gap-4 mb-10">
-              <button className="btn-luxury-filled w-full py-5">
-                Add to Cart
-              </button>
-              <button className="btn-luxury w-full py-5">
-                <span>Buy Now</span>
-              </button>
-            </div>
+            {/* Add to Cart */}
+            <button className="w-full h-12 bg-primary text-primary-foreground font-body text-xs tracking-wide hover:opacity-85 transition-opacity mb-3">
+              Add to cart
+            </button>
 
-            {/* Trust Signals */}
-            <div className="grid grid-cols-2 gap-4 pt-8 border-t border-border">
-              <div className="flex items-center gap-3">
-                <Check className="w-4 h-4 text-silver" strokeWidth={1.5} />
-                <span className="text-xs text-muted-foreground">Premium Materials</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Check className="w-4 h-4 text-silver" strokeWidth={1.5} />
-                <span className="text-xs text-muted-foreground">Limited Production</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Check className="w-4 h-4 text-silver" strokeWidth={1.5} />
-                <span className="text-xs text-muted-foreground">Worldwide Shipping</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Check className="w-4 h-4 text-silver" strokeWidth={1.5} />
-                <span className="text-xs text-muted-foreground">Secure Checkout</span>
-              </div>
+            {/* Buy Now */}
+            <button className="w-full h-12 border border-foreground text-foreground font-body text-xs tracking-wide hover:bg-foreground hover:text-background transition-all mb-6">
+              Buy it now
+            </button>
+
+            {/* Product Description */}
+            <div className="pt-6 border-t border-border">
+              <p className="font-body text-xs text-foreground leading-relaxed mb-4">
+                A commanding presence in Nardo Grey. Crafted from ultra-thick 470 GSM 
+                French Terry cotton, this statement hoodie features reflective 3D "٢٠٠٣" 
+                embroidery on the chest and an oversized reflective AA logo across the back.
+              </p>
+              <ul className="font-body text-xs text-foreground space-y-2">
+                <li>• 470 GSM French Terry Cotton</li>
+                <li>• Reflective 3D Embroidery</li>
+                <li>• Oversized Luxury Fit</li>
+                <li>• Ribbed Cuffs and Hem</li>
+              </ul>
             </div>
           </div>
         </div>

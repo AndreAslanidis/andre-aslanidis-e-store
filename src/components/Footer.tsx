@@ -3,85 +3,56 @@ const Footer = () => {
 
   return (
     <footer className="bg-background border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Main Footer */}
-        <div className="py-16 grid md:grid-cols-3 gap-12">
-          {/* Brand */}
+      <div className="max-w-[1200px] mx-auto px-4 md:px-10 py-8">
+        {/* Footer Content */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+          {/* Quick Links */}
           <div>
-            <div className="mb-6">
-              <span className="font-display text-xl font-light text-foreground">
-                Andre Aslanidis
-              </span>
-              <span className="text-muted-foreground align-super text-xs ml-1">™</span>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Refined streetwear for those who value craftsmanship, weight, and presence.
-            </p>
+            <h3 className="font-body text-xs text-foreground mb-4">Quick links</h3>
+            <nav className="space-y-2">
+              <a href="#" className="block font-body text-xs text-muted-foreground hover:text-foreground transition-colors">
+                Search
+              </a>
+            </nav>
           </div>
 
-          {/* Navigation */}
+          {/* Info */}
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
-              Navigate
-            </p>
-            <nav className="space-y-3">
-              <a 
-                href="#collection" 
-                className="block text-sm text-foreground hover:text-silver transition-colors"
-              >
-                Collection
-              </a>
-              <a 
-                href="#product" 
-                className="block text-sm text-foreground hover:text-silver transition-colors"
-              >
-                Shop
-              </a>
-              <a 
-                href="#contact" 
-                className="block text-sm text-foreground hover:text-silver transition-colors"
-              >
+            <h3 className="font-body text-xs text-foreground mb-4">Info</h3>
+            <nav className="space-y-2">
+              <a href="#contact" className="block font-body text-xs text-muted-foreground hover:text-foreground transition-colors">
                 Contact
               </a>
             </nav>
           </div>
 
-          {/* Legal */}
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
-              Legal
+          {/* Our Mission */}
+          <div className="col-span-2">
+            <h3 className="font-body text-xs text-foreground mb-4">Our mission</h3>
+            <p className="font-body text-xs text-muted-foreground leading-relaxed">
+              Refined streetwear for those who value craftsmanship, weight, and presence.
             </p>
-            <nav className="space-y-3">
-              <a 
-                href="#" 
-                className="block text-sm text-foreground hover:text-silver transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a 
-                href="#" 
-                className="block text-sm text-foreground hover:text-silver transition-colors"
-              >
-                Terms of Service
-              </a>
-              <a 
-                href="#" 
-                className="block text-sm text-foreground hover:text-silver transition-colors"
-              >
-                Shipping & Returns
-              </a>
-            </nav>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
-            © {currentYear} Andre Aslanidis™. All rights reserved.
-          </p>
-          <p className="text-xs text-muted-foreground italic font-display">
-            Elegance Redefined
-          </p>
+        <div className="pt-6 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4">
+            <p className="font-body text-xs text-muted-foreground">
+              © {currentYear}, Andre Aslanidis™
+            </p>
+            <a href="#" className="font-body text-xs text-muted-foreground hover:text-foreground transition-colors">
+              Powered by Shopify
+            </a>
+          </div>
+          <div className="flex items-center gap-4">
+            <a href="#" className="font-body text-xs text-muted-foreground hover:text-foreground transition-colors">
+              Privacy policy
+            </a>
+            <a href="#" className="font-body text-xs text-muted-foreground hover:text-foreground transition-colors">
+              Terms of service
+            </a>
+          </div>
         </div>
       </div>
     </footer>
