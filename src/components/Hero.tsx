@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Import lifestyle images
 import hoodieFront from "@/assets/hoodie-front.png";
@@ -21,13 +22,13 @@ const Hero = () => {
               Elevate your style with our exclusive range of luxury clothing, where sophistication meets unparalleled craftsmanship.
             </p>
             
-            <a 
-              href="#product" 
+            <Link 
+              to="/shop" 
               className="inline-flex items-center gap-2 font-body text-xs text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity luxury-fade-in opacity-0 stagger-3"
             >
               Shop all
               <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
-            </a>
+            </Link>
           </div>
 
           {/* Image Grid - Two portrait images */}
