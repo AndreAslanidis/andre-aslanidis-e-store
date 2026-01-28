@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import hoodieFront from "@/assets/hoodie-front.png";
 
 const FeaturedProducts = () => {
@@ -12,7 +13,7 @@ const FeaturedProducts = () => {
         {/* Product Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {/* Product Card */}
-          <a href="#product" className="group block">
+          <Link to="/products/nardo-grey-hoodie" className="group block">
             <div className="aspect-square bg-secondary overflow-hidden mb-3">
               <img
                 src={hoodieFront}
@@ -27,12 +28,12 @@ const FeaturedProducts = () => {
               Andre Aslanidis™
             </p>
             <p className="font-body text-xs text-foreground">
-              $285.00 AUD
+              $100.00 AUD
             </p>
-          </a>
+          </Link>
 
-          {/* Placeholder for more products */}
-          <a href="#product" className="group block">
+          {/* Duplicate product for display */}
+          <Link to="/products/nardo-grey-hoodie" className="group block">
             <div className="aspect-square bg-secondary overflow-hidden mb-3">
               <img
                 src={hoodieFront}
@@ -47,9 +48,9 @@ const FeaturedProducts = () => {
               Andre Aslanidis™
             </p>
             <p className="font-body text-xs text-foreground">
-              $285.00 AUD
+              $100.00 AUD
             </p>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
