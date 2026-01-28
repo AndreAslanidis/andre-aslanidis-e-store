@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useCart } from "@/context/CartContext";
+import { toast } from "@/hooks/use-toast";
 import hoodieFront from "@/assets/hoodie-front.png";
 import hoodieBack from "@/assets/hoodie-back.png";
 import hoodieDetail from "@/assets/hoodie-detail.jpg";
@@ -20,6 +22,23 @@ const Product = () => {
   const [selectedSize, setSelectedSize] = useState<string>("XS");
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    for (let i = 0; i < quantity; i++) {
+      addItem({
+        id: "nardo-grey-hoodie",
+        name: "'٢٠٠٣' Nardo Grey Hoodie",
+        price: 100.00,
+        size: selectedSize,
+        image: hoodieFront,
+      });
+    }
+    toast({
+      title: "Added to cart",
+      description: `${quantity} × '٢٠٠٣' Nardo Grey Hoodie (${selectedSize})`,
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -28,12 +47,12 @@ const Product = () => {
         <section className="bg-background">
           <div className="max-w-[1200px] mx-auto px-4 md:px-10 py-8 md:py-12">
             {/* Skip to product info link */}
-            <Link 
-              to="#product-info" 
+            <a 
+              href="#product-info" 
               className="font-body text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors mb-4 inline-block"
             >
               Skip to product information
-            </Link>
+            </a>
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
               {/* Product Gallery */}
@@ -144,7 +163,10 @@ const Product = () => {
                 </div>
 
                 {/* Add to Cart Button */}
-                <button className="w-full h-12 border border-foreground text-foreground font-body text-xs tracking-wide hover:bg-foreground hover:text-background transition-all mb-3">
+                <button 
+                  onClick={handleAddToCart}
+                  className="w-full h-12 border border-foreground text-foreground font-body text-xs tracking-wide hover:bg-foreground hover:text-background transition-all mb-3"
+                >
                   Add to cart
                 </button>
 
