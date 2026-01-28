@@ -1,0 +1,105 @@
+import { createContext, useContext, useState, ReactNode } from "react";
+
+export interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  size: string;
+  quantity: number;
+  image: string;
+}
+
+interface CartContextType {
+  items: CartItem[];
+  isOpen: boolean;
+  addItem: (item: Omit<CartItem, "quantity">) => void;
+  removeItem: (id: string, size: string) => void;
+  updateQuantity: (id: string, size: string, quantity: number) => void;
+  clearCart: () => void;
+  openCart: () => void;
+  closeCart: () => void;
+  totalItems: number;
+  totalPrice: number;
+}
+
+const CartContext = createContext<CartContextType | undefined>(undefined);
+
+export const CartProvider = ({ children }: { children: ReactNode }) => {
+  const [items, setItems] = useState<CartItem[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const addItem = (newItem: Omit<CartItem, "quantity">) => {
+    setItems((prevItems) => {
+      const existingItem = prevItems.find(
+        (item) => item.id === newItem.id && item.size === newItem.size
+      );
+
+      if (existingItem) {
+        return prevItems.map((item) =>
+          item.id === newItem.id && item.size === newItem.size
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+
+      return [...prevItems, { ...newItem, quantity: 1 }];
+    });
+    setIsOpen(true);
+  };
+
+  const removeItem = (id: string, size: string) => {
+    setItems((prevItems) =>
+      prevItems.filter((item) => !(item.id === id && item.size === size))
+    );
+  };
+
+  const updateQuantity = (id: string, size: string, quantity: number) => {
+    if (quantity < 1) {
+      removeItem(id, size);
+      return;
+    }
+
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id && item.size === size ? { ...item, quantity } : item
+      )
+    );
+  };
+
+  const clearCart = () => setItems([]);
+  const openCart = () => setIsOpen(true);
+  const closeCart = () => setIsOpen(false);
+
+  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  return (
+    <CartContext.Provider
+      value={{
+        items,
+        isOpen,
+        addItem,
+        removeItem,
+        updateQuantity,
+        clearCart,
+        openCart,
+        closeCart,
+        totalItems,
+        totalPrice,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+export const useCart = () => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error("useCart must be used within a CartProvider");
+  }
+  return context;
+};
