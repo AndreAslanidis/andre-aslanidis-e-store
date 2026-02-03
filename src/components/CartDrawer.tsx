@@ -1,9 +1,50 @@
+import { useState } from "react";
 import { X, Minus, Plus, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCart } from "@/context/CartContext";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const CartDrawer = () => {
   const { items, isOpen, closeCart, updateQuantity, removeItem, totalPrice } = useCart();
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleCheckout = async () => {
+    if (items.length === 0) return;
+    
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("create-checkout", {
+        body: {
+          items: items.map((item) => ({
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            size: item.size,
+            image: item.image,
+          })),
+          success_url: `${window.location.origin}/cart?success=true`,
+          cancel_url: `${window.location.origin}/cart?canceled=true`,
+        },
+      });
+
+      if (error) throw error;
+
+      if (data?.url) {
+        window.location.href = data.url;
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+      toast({
+        title: "Checkout failed",
+        description: "There was an error processing your checkout. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -113,8 +154,12 @@ const CartDrawer = () => {
             >
               View cart
             </Link>
-            <button className="w-full h-12 bg-primary text-primary-foreground font-body text-xs tracking-wide hover:opacity-85 transition-opacity">
-              Check out
+            <button 
+              onClick={handleCheckout}
+              disabled={loading}
+              className="w-full h-12 bg-primary text-primary-foreground font-body text-xs tracking-wide hover:opacity-85 transition-opacity disabled:opacity-50"
+            >
+              {loading ? "Processing..." : "Check out"}
             </button>
             <button 
               onClick={closeCart}

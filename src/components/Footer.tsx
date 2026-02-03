@@ -63,10 +63,6 @@ const Footer = () => {
                 © {currentYear}, Andre Aslanidis™
               </span>
               <span className="font-body text-[10px] text-ivory/60">·</span>
-              <a href="#" className="font-body text-[10px] text-ivory/60 hover:text-ivory transition-colors">
-                Powered by Shopify
-              </a>
-              <span className="font-body text-[10px] text-ivory/60">·</span>
               <Link to="/policies/privacy" className="font-body text-[10px] text-ivory/60 hover:text-ivory transition-colors">
                 Privacy policy
               </Link>

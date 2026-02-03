@@ -1,11 +1,69 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useCart } from "@/context/CartContext";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Cart = () => {
-  const { items, updateQuantity, removeItem, totalPrice } = useCart();
+  const { items, updateQuantity, removeItem, totalPrice, clearCart } = useCart();
+  const [loading, setLoading] = useState(false);
+  const [searchParams] = useSearchParams();
+  const { toast } = useToast();
+
+  useEffect(() => {
+    if (searchParams.get("success") === "true") {
+      toast({
+        title: "Order confirmed!",
+        description: "Thank you for your purchase. You will receive an email confirmation shortly.",
+      });
+      clearCart();
+    } else if (searchParams.get("canceled") === "true") {
+      toast({
+        title: "Order canceled",
+        description: "Your order was canceled. Items remain in your cart.",
+        variant: "destructive",
+      });
+    }
+  }, [searchParams, toast, clearCart]);
+
+  const handleCheckout = async () => {
+    if (items.length === 0) return;
+    
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("create-checkout", {
+        body: {
+          items: items.map((item) => ({
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            size: item.size,
+            image: item.image,
+          })),
+          success_url: `${window.location.origin}/cart?success=true`,
+          cancel_url: `${window.location.origin}/cart?canceled=true`,
+        },
+      });
+
+      if (error) throw error;
+
+      if (data?.url) {
+        window.location.href = data.url;
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+      toast({
+        title: "Checkout failed",
+        description: "There was an error processing your checkout. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -125,10 +183,18 @@ const Cart = () => {
                     <p className="font-body text-xs text-muted-foreground mb-6">
                       Taxes and shipping calculated at checkout
                     </p>
-                    <button className="w-full h-12 bg-primary text-primary-foreground font-body text-xs tracking-wide hover:opacity-85 transition-opacity mb-3">
-                      Check out
+                    <button 
+                      onClick={handleCheckout}
+                      disabled={loading}
+                      className="w-full h-12 bg-primary text-primary-foreground font-body text-xs tracking-wide hover:opacity-85 transition-opacity mb-3 disabled:opacity-50"
+                    >
+                      {loading ? "Processing..." : "Check out"}
                     </button>
-                    <button className="w-full h-12 bg-[#5A31F4] text-white font-body text-xs tracking-wide hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                    <button 
+                      onClick={handleCheckout}
+                      disabled={loading}
+                      className="w-full h-12 bg-[#5A31F4] text-white font-body text-xs tracking-wide hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50"
+                    >
                       Buy now with{" "}
                       <span className="font-bold italic">Shop</span>
                       <span className="font-bold">Pay</span>
