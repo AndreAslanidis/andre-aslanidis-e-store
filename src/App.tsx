@@ -11,6 +11,13 @@ import FAQs from "./pages/FAQs";
 import ContactUs from "./pages/ContactUs";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import ShippingPolicy from "./pages/ShippingPolicy";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Account from "./pages/Account";
+import RecoverPassword from "./pages/RecoverPassword";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +40,15 @@ const App = () => (
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/products/:slug" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
+            {/* Policy Pages */}
+            <Route path="/policies/privacy" element={<PrivacyPolicy />} />
+            <Route path="/policies/terms" element={<TermsOfService />} />
+            <Route path="/policies/shipping" element={<ShippingPolicy />} />
+            {/* Account Pages */}
+            <Route path="/account" element={<Account />} />
+            <Route path="/account/login" element={<Login />} />
+            <Route path="/account/register" element={<Register />} />
+            <Route path="/account/recover" element={<RecoverPassword />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
