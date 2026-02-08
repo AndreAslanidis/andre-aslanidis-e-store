@@ -170,13 +170,6 @@ const Product = () => {
                   Add to cart
                 </button>
 
-                {/* Buy Now Button */}
-                <button className="w-full h-12 bg-[#5A31F4] text-white font-body text-xs tracking-wide hover:opacity-90 transition-opacity flex items-center justify-center gap-2 mb-3">
-                  Buy now with{" "}
-                  <span className="font-bold italic">Shop</span>
-                  <span className="font-bold">Pay</span>
-                </button>
-
                 {/* More Payment Options */}
                 <p className="font-body text-xs text-center underline underline-offset-4 text-foreground hover:opacity-70 transition-opacity cursor-pointer mb-8">
                   More payment options
