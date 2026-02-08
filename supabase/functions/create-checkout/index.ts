@@ -29,14 +29,13 @@ serve(async (req) => {
     }
 
     // Create line items for Stripe
-    const lineItems = items.map((item: { name: string; price: number; quantity: number; size?: string; image?: string }) => ({
+    const lineItems = items.map((item: { name: string; price: number; quantity: number; size?: string }) => ({
       price_data: {
         currency: "aud",
         product_data: {
           name: item.name + (item.size ? ` - Size ${item.size}` : ""),
-          images: item.image ? [item.image] : [],
         },
-        unit_amount: Math.round(item.price * 100), // Convert to cents
+        unit_amount: Math.round(item.price * 100),
       },
       quantity: item.quantity,
     }));
