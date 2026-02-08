@@ -1,79 +1,96 @@
-import { ArrowRight } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// Import lifestyle images
 import hoodieFront from "@/assets/hoodie-front.png";
 import hoodieBack from "@/assets/hoodie-back.png";
 import hoodieLifestyle from "@/assets/hoodie-lifestyle.jpg";
+import hoodieDetail from "@/assets/hoodie-detail.jpg";
+import hoodieHero from "@/assets/hoodie-hero.jpg";
+
+const slides = [
+  { src: hoodieHero, alt: "Andre Aslanidis hero" },
+  { src: hoodieFront, alt: "Andre Aslanidis hoodie front" },
+  { src: hoodieBack, alt: "Andre Aslanidis hoodie back" },
+  { src: hoodieLifestyle, alt: "Andre Aslanidis lifestyle" },
+  { src: hoodieDetail, alt: "Andre Aslanidis detail" },
+];
 
 const Hero = () => {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => setCurrent((c) => (c + 1) % slides.length), []);
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + slides.length) % slides.length), []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
+
   return (
-    <section className="relative bg-background">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-10 py-8 md:py-12">
-        {/* Hero Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-          {/* Text Content */}
-          <div className="md:col-span-4 flex flex-col justify-center py-6 md:py-12">
-            <h1 className="font-display text-xl md:text-2xl italic text-foreground mb-4 luxury-fade-in opacity-0 stagger-1">
-              Elegance Redefined
-            </h1>
-            
-            <p className="font-body text-xs md:text-sm text-foreground leading-relaxed mb-6 luxury-fade-in opacity-0 stagger-2">
-              Elevate your style with our exclusive range of luxury clothing, where sophistication meets unparalleled craftsmanship.
-            </p>
-            
-            <Link 
-              to="/shop" 
-              className="inline-flex items-center gap-2 font-body text-xs text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity luxury-fade-in opacity-0 stagger-3"
-            >
-              Shop all
-              <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
-            </Link>
-          </div>
+    <section className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-secondary">
+      {/* Slides */}
+      {slides.map((slide, i) => (
+        <img
+          key={i}
+          src={slide.src}
+          alt={slide.alt}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
 
-          {/* Image Grid - Two portrait images */}
-          <div className="md:col-span-8 grid grid-cols-2 gap-4 md:gap-6">
-            <div className="aspect-[3/4] overflow-hidden luxury-fade-in opacity-0 stagger-2">
-              <img
-                src={hoodieFront}
-                alt="Andre Aslanidis hoodie - lifestyle shot"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-            <div className="aspect-[3/4] overflow-hidden luxury-fade-in opacity-0 stagger-3">
-              <img
-                src={hoodieBack}
-                alt="Andre Aslanidis hoodie - detail shot"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-          </div>
-        </div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/30" />
 
-        {/* Full Width Images Below */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-8">
-          <div className="aspect-[4/5] overflow-hidden luxury-fade-in opacity-0 stagger-4">
-            <img
-              src={hoodieLifestyle}
-              alt="Andre Aslanidis lifestyle"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
-          </div>
-          <div className="aspect-[4/5] overflow-hidden luxury-fade-in opacity-0 stagger-5">
-            <img
-              src={hoodieFront}
-              alt="Andre Aslanidis collection"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
-          </div>
-          <div className="aspect-[4/5] overflow-hidden luxury-fade-in opacity-0" style={{ animationDelay: '0.3s' }}>
-            <img
-              src={hoodieBack}
-              alt="Andre Aslanidis detail"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
-          </div>
+      {/* Content */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="text-center px-4">
+          <h1 className="font-display text-2xl md:text-4xl lg:text-5xl italic text-white mb-4">
+            Elegance Redefined
+          </h1>
+          <p className="font-body text-xs md:text-sm text-white/80 max-w-md mx-auto mb-6">
+            Elevate your style with our exclusive range of luxury clothing, where sophistication meets unparalleled craftsmanship.
+          </p>
+          <Link
+            to="/shop"
+            className="inline-flex items-center gap-2 font-body text-xs text-white border border-white/60 px-6 py-3 hover:bg-white hover:text-black transition-all"
+          >
+            Shop all
+            <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
+          </Link>
         </div>
+      </div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={prev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white/70 hover:text-white transition-colors"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6" strokeWidth={1.5} />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white/70 hover:text-white transition-colors"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6" strokeWidth={1.5} />
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              i === current ? "bg-white w-6" : "bg-white/40 hover:bg-white/60"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
       </div>
     </section>
   );
