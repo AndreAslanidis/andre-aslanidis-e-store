@@ -18,6 +18,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Account from "./pages/Account";
 import RecoverPassword from "./pages/RecoverPassword";
+import OrderSuccess from "./pages/OrderSuccess";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/products/:slug" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/order-success" element={<OrderSuccess />} />
             {/* Policy Pages */}
             <Route path="/policies/privacy" element={<PrivacyPolicy />} />
             <Route path="/policies/terms" element={<TermsOfService />} />
