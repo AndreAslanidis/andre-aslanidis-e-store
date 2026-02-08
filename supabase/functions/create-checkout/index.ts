@@ -45,8 +45,8 @@ serve(async (req) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: success_url || `${req.headers.get("origin")}/cart?success=true`,
-      cancel_url: cancel_url || `${req.headers.get("origin")}/cart?canceled=true`,
+      success_url: success_url || `${req.headers.get("origin")}/order-success`,
+      cancel_url: cancel_url || `${req.headers.get("origin")}/cart`,
       shipping_address_collection: {
         allowed_countries: ["AU", "US", "GB", "CA", "NZ"],
       },

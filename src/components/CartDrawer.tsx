@@ -24,8 +24,8 @@ const CartDrawer = () => {
             size: item.size,
             image: item.image,
           })),
-          success_url: `${window.location.origin}/cart?success=true`,
-          cancel_url: `${window.location.origin}/cart?canceled=true`,
+          success_url: `${window.location.origin}/order-success`,
+          cancel_url: `${window.location.origin}/cart`,
         },
       });
 
