@@ -8,7 +8,7 @@ import lifestyleStairs from "@/assets/lifestyle-stairs.jpg";
 
 const slides = [
   { src: lifestyleGroup, alt: "Andre Aslanidis group lifestyle", fit: "object-cover" },
-  { src: lifestyleNight, alt: "Andre Aslanidis night lifestyle", fit: "object-contain" },
+  { src: lifestyleNight, alt: "Andre Aslanidis night lifestyle", fit: "object-cover", position: "object-[center_70%]" },
   { src: lifestyleStairs, alt: "Andre Aslanidis stairs lifestyle", fit: "object-cover" },
 ];
 
@@ -33,7 +33,7 @@ const Hero = () => {
           alt={slide.alt}
           loading="eager"
           decoding="async"
-          className={`absolute inset-0 w-full h-full ${slide.fit} transition-opacity duration-700 ${
+          className={`absolute inset-0 w-full h-full ${slide.fit} ${slide.position || ''} transition-opacity duration-700 ${
             i === current ? "opacity-100" : "opacity-0"
           }`}
         />
