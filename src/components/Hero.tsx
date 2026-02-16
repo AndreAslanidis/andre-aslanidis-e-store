@@ -24,7 +24,8 @@ const Hero = () => {
   }, [next]);
 
   return (
-    <section className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-secondary">
+    <section className="max-w-7xl mx-auto px-4 md:px-8 pt-6">
+      <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-lg bg-secondary">
       {/* Slides */}
       {slides.map((slide, i) => (
         <img
@@ -89,6 +90,7 @@ const Hero = () => {
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
+      </div>
       </div>
     </section>
   );
