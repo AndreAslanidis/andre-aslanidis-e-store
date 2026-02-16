@@ -2,18 +2,14 @@ import { useState, useEffect, useCallback } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import hoodieFront from "@/assets/hoodie-front.png";
-import hoodieBack from "@/assets/hoodie-back.png";
-import hoodieLifestyle from "@/assets/hoodie-lifestyle.jpg";
-import hoodieDetail from "@/assets/hoodie-detail.jpg";
-import hoodieHero from "@/assets/hoodie-hero.jpg";
+import lifestyleGroup from "@/assets/lifestyle-group.jpg";
+import lifestyleNight from "@/assets/lifestyle-night.jpg";
+import lifestyleStairs from "@/assets/lifestyle-stairs.jpg";
 
 const slides = [
-  { src: hoodieHero, alt: "Andre Aslanidis hero" },
-  { src: hoodieFront, alt: "Andre Aslanidis hoodie front" },
-  { src: hoodieBack, alt: "Andre Aslanidis hoodie back" },
-  { src: hoodieLifestyle, alt: "Andre Aslanidis lifestyle" },
-  { src: hoodieDetail, alt: "Andre Aslanidis detail" },
+  { src: lifestyleGroup, alt: "Andre Aslanidis group lifestyle" },
+  { src: lifestyleNight, alt: "Andre Aslanidis night lifestyle" },
+  { src: lifestyleStairs, alt: "Andre Aslanidis stairs lifestyle" },
 ];
 
 const Hero = () => {
