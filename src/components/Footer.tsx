@@ -41,7 +41,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-4">
               <a 
-                href="https://instagram.com/andreaslanidis" 
+                href="https://www.instagram.com/andreaslanidis/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-ivory hover:opacity-70 transition-opacity"
@@ -80,27 +80,6 @@ const Footer = () => {
               </Link>
             </div>
 
-            {/* Payment Icons */}
-            <div className="flex items-center gap-2">
-              {/* Payment method icons */}
-              <div className="flex items-center gap-1">
-                <div className="w-8 h-5 bg-ivory/10 rounded flex items-center justify-center">
-                  <span className="font-body text-[8px] text-ivory">AMEX</span>
-                </div>
-                <div className="w-8 h-5 bg-ivory/10 rounded flex items-center justify-center">
-                  <span className="font-body text-[8px] text-ivory">VISA</span>
-                </div>
-                <div className="w-8 h-5 bg-ivory/10 rounded flex items-center justify-center">
-                  <span className="font-body text-[8px] text-ivory">MC</span>
-                </div>
-                <div className="w-8 h-5 bg-ivory/10 rounded flex items-center justify-center">
-                  <span className="font-body text-[8px] text-ivory">GPay</span>
-                </div>
-                <div className="w-8 h-5 bg-[#5A31F4] rounded flex items-center justify-center">
-                  <span className="font-body text-[8px] text-white font-bold">Shop</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
