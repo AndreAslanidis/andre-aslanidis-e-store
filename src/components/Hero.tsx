@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import lifestyleGroup from "@/assets/lifestyle-group.jpg";
 import lifestyleNight from "@/assets/lifestyle-night.jpg";
@@ -42,25 +41,6 @@ const Hero = () => {
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30" />
-
-      {/* Content */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center px-4">
-          <h1 className="font-display text-2xl md:text-4xl lg:text-5xl italic text-white mb-4">
-            Elegance Redefined
-          </h1>
-          <p className="font-body text-xs md:text-sm text-white/80 max-w-md mx-auto mb-6">
-            Elevate your style with our exclusive range of luxury clothing, where sophistication meets unparalleled craftsmanship.
-          </p>
-          <Link
-            to="/shop"
-            className="inline-flex items-center gap-2 font-body text-xs text-white border border-white/60 px-6 py-3 hover:bg-white hover:text-black transition-all"
-          >
-            Shop all
-            <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
-          </Link>
-        </div>
-      </div>
 
       {/* Navigation Arrows */}
       <button
