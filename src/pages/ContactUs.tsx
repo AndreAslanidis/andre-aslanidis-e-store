@@ -14,7 +14,6 @@ const ContactUs = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Form submitted:", formData);
   };
 
@@ -24,26 +23,27 @@ const ContactUs = () => {
       <main>
         <section className="bg-background">
           <div className="max-w-[800px] mx-auto px-4 md:px-10 py-12 md:py-16">
-            {/* Page Title */}
             <h1 className="font-display text-3xl md:text-4xl text-foreground mb-8 text-center">
-              Contact
+              Contact Information
             </h1>
 
             {/* Contact Info */}
-            <div className="text-center mb-12 space-y-4">
-              <p className="font-body text-xs text-foreground">
-                If you have any questions or concerns regarding your order, feel free to contact us.
+            <div className="mb-12 space-y-3 font-body text-xs text-foreground leading-relaxed">
+              <p>If you have any questions or concerns regarding your order, feel free to contact us.</p>
+              <p>You can reach us via the following:</p>
+              <p>
+                Email:{" "}
+                <a href="mailto:shop.andreaslanidis@gmail.com" className="underline underline-offset-4 hover:opacity-70 transition-opacity">
+                  shop.andreaslanidis@gmail.com
+                </a>
               </p>
-              <p className="font-body text-xs text-foreground">
-                You can reach us via the following:
+              <p>
+                Instagram:{" "}
+                <a href="https://instagram.com/andreaslanidis" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:opacity-70 transition-opacity">
+                  @andreaslanidis
+                </a>
               </p>
-              <p className="font-body text-xs text-foreground">
-                Email: shop.andreaslanidis@gmail.com
-              </p>
-              <p className="font-body text-xs text-foreground">
-                Instagram: <a href="https://instagram.com/andreaslanidis" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:opacity-70 transition-opacity">@andreaslanidis</a>
-              </p>
-              <p className="font-body text-xs text-muted-foreground">
+              <p className="text-muted-foreground">
                 We try our best to get back to any inquiries within 24 hours, however in some cases it may take up to 2 business days.
               </p>
             </div>
@@ -53,25 +53,21 @@ const ContactUs = () => {
               <h2 className="font-display text-lg text-foreground mb-6">Contact form</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Input
-                      type="text"
-                      placeholder="Name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="h-12 border-border bg-background font-body text-xs placeholder:text-muted-foreground rounded-none focus-visible:ring-1 focus-visible:ring-foreground"
-                    />
-                  </div>
-                  <div>
-                    <Input
-                      type="email"
-                      placeholder="Email *"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="h-12 border-border bg-background font-body text-xs placeholder:text-muted-foreground rounded-none focus-visible:ring-1 focus-visible:ring-foreground"
-                    />
-                  </div>
+                  <Input
+                    type="text"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="h-12 border-border bg-background font-body text-xs placeholder:text-muted-foreground rounded-none focus-visible:ring-1 focus-visible:ring-foreground"
+                  />
+                  <Input
+                    type="email"
+                    placeholder="Email *"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="h-12 border-border bg-background font-body text-xs placeholder:text-muted-foreground rounded-none focus-visible:ring-1 focus-visible:ring-foreground"
+                  />
                 </div>
                 <Input
                   type="tel"
