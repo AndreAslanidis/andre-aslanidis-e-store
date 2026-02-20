@@ -27,7 +27,7 @@ const TermsOfService = () => {
                     shop.andreaslanidis@gmail.com
                   </a>{" "}
                   or DM us{" "}
-                  <a href="https://instagram.com/andreaslanidis" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:opacity-70 transition-opacity">
+                  <a href="https://www.instagram.com/andreaslanidis/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:opacity-70 transition-opacity">
                     @andreaslanidis
                   </a>{" "}
                   on Instagram.
