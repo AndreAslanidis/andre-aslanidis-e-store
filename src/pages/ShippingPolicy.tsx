@@ -12,87 +12,84 @@ const ShippingPolicy = () => {
               Shipping Policy
             </h1>
 
-            <div className="space-y-8 font-body text-xs text-foreground leading-relaxed">
+            <div className="space-y-6 font-body text-xs text-foreground leading-relaxed">
+              <p>
+                Thank you for choosing Andre Aslanidis™ for your fashion needs. We strive to provide you with the best shopping experience, including efficient and reliable shipping services. Please find below our shipping policy:
+              </p>
+
               <div>
-                <h2 className="font-display text-lg text-foreground mb-4">Processing Time</h2>
-                <p className="mb-4">
-                  All orders are processed within 1-3 business days. Orders are not shipped or delivered on weekends or holidays.
-                </p>
+                <h2 className="font-display text-sm text-foreground mb-2">1. Shipping Locations:</h2>
                 <p>
-                  If we are experiencing a high volume of orders, shipments may be delayed by a few days. Please allow additional days in transit for delivery. If there will be a significant delay in shipment of your order, we will contact you via email.
+                  We currently offer shipping services within Australia and internationally. However, please note that international shipping may be subject to additional fees and customs duties.
                 </p>
               </div>
 
               <div>
-                <h2 className="font-display text-lg text-foreground mb-4">Shipping Rates & Delivery Estimates</h2>
-                <p className="mb-4">
-                  Shipping charges for your order will be calculated and displayed at checkout.
-                </p>
-                <div className="border border-border p-4 mb-4">
-                  <h3 className="font-display text-sm text-foreground mb-3">Domestic Shipping (Australia)</h3>
-                  <ul className="space-y-2">
-                    <li>Standard Shipping: 5-10 business days - $10 AUD</li>
-                    <li>Express Shipping: 2-4 business days - $20 AUD</li>
-                    <li>Free Standard Shipping on orders over $150 AUD</li>
-                  </ul>
-                </div>
-                <div className="border border-border p-4">
-                  <h3 className="font-display text-sm text-foreground mb-3">International Shipping</h3>
-                  <ul className="space-y-2">
-                    <li>Standard International: 10-20 business days - $25 AUD</li>
-                    <li>Express International: 5-10 business days - $45 AUD</li>
-                    <li>Free Standard International Shipping on orders over $250 AUD</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div>
-                <h2 className="font-display text-lg text-foreground mb-4">Shipment Confirmation & Order Tracking</h2>
+                <h2 className="font-display text-sm text-foreground mb-2">2. Processing Time:</h2>
                 <p>
-                  You will receive a Shipment Confirmation email once your order has shipped containing your tracking number(s). The tracking number will be active within 24 hours.
+                  Once your order is placed, we will process it within 1-2 business days. Please note that during peak seasons or promotional periods, processing times may be slightly longer.
                 </p>
               </div>
 
               <div>
-                <h2 className="font-display text-lg text-foreground mb-4">Customs, Duties and Taxes</h2>
-                <p className="mb-4">
-                  Andre Aslanidis™ is not responsible for any customs and taxes applied to your order. All fees imposed during or after shipping are the responsibility of the customer (tariffs, taxes, etc.).
+                <h2 className="font-display text-sm text-foreground mb-2">3. Shipping Methods and Timeframes:</h2>
+                <p className="mb-3">We offer the following shipping methods:</p>
+
+                <p className="mb-1 font-display">a. Domestic Shipping (within Australia):</p>
+                <ul className="list-disc list-inside space-y-1 mb-4 pl-2">
+                  <li>Standard Shipping: Estimated delivery time is 3-7 business days.</li>
+                  <li>Express Shipping: Estimated delivery time is 1-3 business days.</li>
+                </ul>
+
+                <p className="mb-1 font-display">b. International Shipping:</p>
+                <ul className="list-disc list-inside space-y-1 pl-2">
+                  <li>Standard Shipping: Estimated delivery time varies depending on the destination, typically between 7-21 business days.</li>
+                  <li>Express Shipping: Estimated delivery time is 3-5 business days.</li>
+                </ul>
+
+                <p className="mt-3 text-muted-foreground">
+                  Please note that these timeframes are estimates and may vary due to unforeseen circumstances or delays beyond our control.
                 </p>
               </div>
 
               <div>
-                <h2 className="font-display text-lg text-foreground mb-4">Damages</h2>
-                <p className="mb-4">
-                  Andre Aslanidis™ is not liable for any products damaged or lost during shipping. If you received your order damaged, please contact the shipment carrier to file a claim.
-                </p>
+                <h2 className="font-display text-sm text-foreground mb-2">4. Shipping Costs:</h2>
                 <p>
-                  Please save all packaging materials and damaged goods before filing a claim.
+                  Shipping costs will be calculated at checkout based on the destination and the selected shipping method. We offer competitive shipping rates to ensure affordability for our customers.
                 </p>
               </div>
 
               <div>
-                <h2 className="font-display text-lg text-foreground mb-4">Returns & Exchanges</h2>
-                <p className="mb-4">
-                  We accept returns within 30 days of delivery for unworn, unwashed items with original tags attached. Items must be in original condition.
-                </p>
+                <h2 className="font-display text-sm text-foreground mb-2">5. Order Tracking:</h2>
                 <p>
-                  For exchanges, please return the original item and place a new order for the desired item. Return shipping costs are the responsibility of the customer unless the item is defective.
+                  Once your order is shipped, you will receive a confirmation email with a tracking number. You can use this tracking number to monitor the progress of your shipment through our website or the designated courier's website.
                 </p>
               </div>
 
               <div>
-                <h2 className="font-display text-lg text-foreground mb-4">Contact Us</h2>
+                <h2 className="font-display text-sm text-foreground mb-2">6. Delivery Issues:</h2>
                 <p>
-                  If you have any questions about shipping, please contact us at:
-                </p>
-                <p className="mt-2">
-                  Email: shop.andreaslanidis@gmail.com
+                  In the rare event of any delivery issues, such as lost or damaged packages, please contact our customer support team immediately. We will work diligently to resolve the issue and ensure your satisfaction.
                 </p>
               </div>
 
-              <div className="text-muted-foreground">
-                <p>Last updated: February 2026</p>
+              <div>
+                <h2 className="font-display text-sm text-foreground mb-2">7. Customs and Duties:</h2>
+                <p>
+                  For international orders, please note that customs duties, taxes, or import fees may apply upon arrival in your country. These charges are the responsibility of the customer and are not included in the product or shipping costs.
+                </p>
               </div>
+
+              <div>
+                <h2 className="font-display text-sm text-foreground mb-2">8. Returns and Exchanges:</h2>
+                <p>
+                  For information regarding our returns and exchanges policy, please refer to our dedicated policy page on our website.
+                </p>
+              </div>
+
+              <p className="text-muted-foreground">
+                We hope this shipping policy provides you with a clear understanding of our shipping procedures. If you have any further questions or require assistance, please do not hesitate to contact our customer support team.
+              </p>
             </div>
           </div>
         </section>
