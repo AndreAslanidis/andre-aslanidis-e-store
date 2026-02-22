@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { X, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import hoodieHero from "@/assets/hoodie-hero.jpg";
+import hoodieFront from "@/assets/hoodie-front-white.png";
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -12,10 +12,10 @@ interface SearchModalProps {
 // Mock product data - in production this would come from an API
 const products = [
   {
-    id: "essential-hoodie",
-    name: "The Essential Hoodie",
-    price: 120,
-    image: hoodieHero,
+    id: "nardo-grey-hoodie",
+    name: "'٢٠٠٣' Nardo Grey Hoodie",
+    price: 100,
+    image: hoodieFront,
   },
 ];
 
@@ -103,7 +103,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
                         <img
                           src={product.image}
                           alt={product.name}
-                          className="w-16 h-16 object-cover"
+                          className="w-16 h-16 object-contain"
                         />
                         <div>
                           <p className="font-body text-xs text-foreground">
