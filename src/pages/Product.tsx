@@ -58,11 +58,11 @@ const Product = () => {
               {/* Product Gallery */}
               <div className="space-y-4">
                 {/* Main Image */}
-                <div className="aspect-square bg-secondary overflow-hidden">
+                <div className="bg-secondary overflow-hidden">
                   <img
                     src={images[selectedImage].src}
                     alt={images[selectedImage].alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
                 
@@ -86,7 +86,7 @@ const Product = () => {
                       <img
                         src={image.src}
                         alt={image.alt}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     </button>
                   ))}
