@@ -18,7 +18,7 @@ const FeaturedProducts = () => {
               <img
                 src={hoodieFront}
                 alt="'٢٠٠٣' Nardo Grey Hoodie"
-                className="w-full h-full group-hover:scale-105 transition-transform duration-500 object-scale-down border-8" />
+                className="w-full h-full group-hover:scale-105 transition-transform duration-500 object-scale-down border-0" />
 
             </div>
             <h3 className="font-body text-xs text-foreground mb-1">
