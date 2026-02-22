@@ -18,8 +18,8 @@ const FeaturedProducts = () => {
               <img
                 src={hoodieFront}
                 alt="'٢٠٠٣' Nardo Grey Hoodie"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+
             </div>
             <h3 className="font-body text-xs text-foreground mb-1">
               '٢٠٠٣' Nardo Grey Hoodie
@@ -34,13 +34,13 @@ const FeaturedProducts = () => {
 
           {/* Duplicate product for display */}
           <Link to="/products/nardo-grey-hoodie" className="group block">
-            <div className="aspect-square bg-secondary overflow-hidden mb-3">
-              <img
-                src={hoodieFront}
-                alt="'٢٠٠٣' Nardo Grey Hoodie"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+
+
+
+
+
+
+
             <h3 className="font-body text-xs text-foreground mb-1">
               '٢٠٠٣' Nardo Grey Hoodie
             </h3>
@@ -53,8 +53,8 @@ const FeaturedProducts = () => {
           </Link>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default FeaturedProducts;
