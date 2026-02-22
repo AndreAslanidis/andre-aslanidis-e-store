@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import hoodieFront from "@/assets/hoodie-front.png";
+import hoodieFront from "@/assets/hoodie-front-white.png";
 
 const Shop = () => {
   return (
@@ -52,7 +52,7 @@ const Shop = () => {
                   <img
                     src={hoodieFront}
                     alt="'٢٠٠٣' Nardo Grey Hoodie"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <h3 className="font-body text-xs text-foreground mb-1">
