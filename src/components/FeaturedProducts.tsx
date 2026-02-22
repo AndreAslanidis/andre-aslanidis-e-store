@@ -18,7 +18,7 @@ const FeaturedProducts = () => {
               <img
                 src={hoodieFront}
                 alt="'٢٠٠٣' Nardo Grey Hoodie"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                className="w-full h-full group-hover:scale-105 transition-transform duration-500 object-scale-down border-8" />
 
             </div>
             <h3 className="font-body text-xs text-foreground mb-1">
@@ -33,7 +33,7 @@ const FeaturedProducts = () => {
           </Link>
 
           {/* Duplicate product for display */}
-          <Link to="/products/nardo-grey-hoodie" className="group block">
+          
 
 
 
@@ -41,16 +41,16 @@ const FeaturedProducts = () => {
 
 
 
-            <h3 className="font-body text-xs text-foreground mb-1">
-              '٢٠٠٣' Nardo Grey Hoodie
-            </h3>
-            <p className="font-body text-xs text-muted-foreground mb-1">
-              Andre Aslanidis™
-            </p>
-            <p className="font-body text-xs text-foreground">
-              $100.00 AUD
-            </p>
-          </Link>
+
+
+
+
+
+
+
+
+
+
         </div>
       </div>
     </section>);
