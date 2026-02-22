@@ -4,18 +4,18 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useCart } from "@/context/CartContext";
 import { toast } from "@/hooks/use-toast";
-import hoodieFront from "@/assets/hoodie-front.png";
-import hoodieBack from "@/assets/hoodie-back.png";
-import hoodieDetail from "@/assets/hoodie-detail.jpg";
-import hoodieLifestyle from "@/assets/hoodie-lifestyle.jpg";
+import hoodieFront from "@/assets/hoodie-front-white.png";
+import hoodieBack from "@/assets/hoodie-back-reflective.png";
+import hoodieSizeDiagram from "@/assets/hoodie-size-diagram.png";
+import hoodieSizeTable from "@/assets/hoodie-size-table.png";
 
 const sizes = ["XS", "S", "M", "L", "XL"];
 
 const images = [
-  { src: hoodieFront, alt: "Hoodie front view" },
-  { src: hoodieBack, alt: "Hoodie back view with AA logo" },
-  { src: hoodieDetail, alt: "Reflective embroidery detail" },
-  { src: hoodieLifestyle, alt: "Lifestyle shot" },
+  { src: hoodieFront, alt: "'٢٠٠٣' Nardo Grey Hoodie - Front view" },
+  { src: hoodieBack, alt: "'٢٠٠٣' Nardo Grey Hoodie - Back view with AA reflective logo" },
+  { src: hoodieSizeDiagram, alt: "'٢٠٠٣' Nardo Grey Hoodie - Size guide diagram" },
+  { src: hoodieSizeTable, alt: "'٢٠٠٣' Nardo Grey Hoodie - Size guide in CM" },
 ];
 
 const Product = () => {
